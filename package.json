@@ -1,0 +1,53 @@
+{
+  "name": "echoguard-mcp",
+  "version": "1.0.0",
+  "description": "EchoGuard MCP — Safety-Governed Emergency Intelligence Multi-Agent System",
+  "type": "module",
+  "main": "dist/mcp/index.js",
+  "scripts": {
+    "dev": "vite",
+    "dev:all": "tsx src/server/index.ts",
+    "server": "tsx src/server/index.ts",
+    "mcp": "tsx src/mcp/index.ts",
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "emergency-response",
+    "safety-governance",
+    "multi-agent",
+    "gas-leak-safety",
+    "ai-safety"
+  ],
+  "author": "EchoGuard Systems",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.186.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

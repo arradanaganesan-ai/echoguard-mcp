@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ============================================================
+   EchoGuard MCP — Premium Enterprise Design Tokens
+   Graphite command-center palette with controlled amber accents
+   ============================================================ */
+@theme {
+  /* Core surfaces */
+  --color-bg: #111318;
+  --color-panel: #191d24;
+  --color-surface: #202631;
+
+  /* Typography */
+  --color-ink: #f3f2ee;
+  --color-ink-dim: #c9cdd4;
+  --color-muted: #969eaa;
+  --color-faint: #6d7480;
+
+  /* Controlled accents */
+  --color-amber: #f3b64a;
+  --color-danger: #f06464;
+  --color-safe: #72c79a;
+
+  /* Borders */
+  --color-line: #262c36;
+  --color-line-strong: #333b47;
+
+  /* Typography stacks */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* Realistic, restrained shadows */
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px -18px rgba(0, 0, 0, 0.65);
+  --shadow-raised: 0 2px 4px rgba(0, 0, 0, 0.4), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background: rgba(243, 182, 74, 0.25);
+    color: var(--color-ink);
+  }
+
+  /* Visible, consistent keyboard focus */
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Respect reduced-motion system-wide */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------
+   Surface primitives — layered depth without neon or gradients
+   ------------------------------------------------------------ */
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-panel);
+}
+
+.panel-subtle {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+}
+
+.panel-danger {
+  background: rgba(240, 100, 100, 0.06);
+  border: 1px solid rgba(240, 100, 100, 0.32);
+  border-radius: 14px;
+}
+
+.panel-amber {
+  background: rgba(243, 182, 74, 0.06);
+  border: 1px solid rgba(243, 182, 74, 0.28);
+  border-radius: 14px;
+}
+
+.panel-safe {
+  background: rgba(114, 199, 154, 0.06);
+  border: 1px solid rgba(114, 199, 154, 0.28);
+  border-radius: 14px;
+}
+
+/* Small structural label used across panels */
+.label-cap {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Subtle entrance for dynamic content (no layout shift: applied to existing boxes) */
+@keyframes echo-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  animation: echo-fade-in 160ms ease-out;
+}
+
+@keyframes echo-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.toast-in {
+  animation: echo-toast-in 180ms ease-out;
+}
+
+@keyframes echo-drawer-in {
+  from {
+    transform: translateX(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.drawer-in {
+  animation: echo-drawer-in 180ms ease-out;
+}
+
+/* Restrained scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 158, 170, 0.22);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 158, 170, 0.38);
+}
